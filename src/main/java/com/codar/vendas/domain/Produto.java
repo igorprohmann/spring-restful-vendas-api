@@ -33,6 +33,17 @@ public class Produto implements Serializable {
 		inverseJoinColumns = @JoinColumn(name = "idCategoria"))
 	private List<Categoria> categorias = new ArrayList<>();
 
+	public Produto() {
+		
+	}
+	
+	public Produto(Integer id, String nome, Double valor) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.valor = valor;
+	}
+
 	public Integer getId() {
 		return id;
 	}

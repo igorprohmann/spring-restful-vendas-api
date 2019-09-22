@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -42,6 +43,13 @@ public class CategoriaResouce {
 	public ResponseEntity<Void> atualizar(@RequestBody Categoria categoria, @PathVariable("id") Integer id) {
 		categoria.setId(id);
 		categoria = categoriaService.atualizar(categoria);
+		return ResponseEntity.noContent().build();
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<Void> deletar(@PathVariable("id") Integer id) {
+		categoriaService.deletar(id);
+		
 		return ResponseEntity.noContent().build();
 	}
 

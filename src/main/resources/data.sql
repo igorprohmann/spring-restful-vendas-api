@@ -24,3 +24,12 @@ INSERT INTO TELEFONE(id_cliente, telefone) VALUES(1, '93838393');
 
 INSERT INTO ENDERECO(logradouro, numero, complemento, bairro, cep, id_cliente, id_cidade) VALUES('Rua Flores', '300', 'Apto 303', 'Jardim', '38220834', 1, 1);
 INSERT INTO ENDERECO(logradouro, numero, complemento, bairro, cep, id_cliente, id_cidade) VALUES('Avenida Matos', '105', 'Sala 800', 'Centro', '38777012', 1, 2);
+
+INSERT INTO PEDIDO(instante, id_cliente, id_endereco_de_entrega) VALUES({ts '2017-09-30 10:32:00.00'},  1, 1);
+INSERT INTO PEDIDO(instante, id_cliente, id_endereco_de_entrega) VALUES({ts '2017-10-10 19:35:00.00'},  1, 2);
+
+INSERT INTO PAGAMENTO(id_pedido, estado) VALUES(1, 2);
+INSERT INTO PAGAMENTO_COM_CARTAO(id_pedido, numero_de_parcelas) VALUES(1,6);
+
+INSERT INTO PAGAMENTO(id_pedido, estado) VALUES(2, 1);
+INSERT INTO PAGAMENTO_COM_BOLETO(id_pedido, data_vencimento, data_pagamento) VALUES(2, {ts '2017-10-20 00:00:00.00'}, null);

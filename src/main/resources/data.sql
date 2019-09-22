@@ -1,5 +1,10 @@
 INSERT INTO CATEGORIA(nome) VALUES('Informática');
 INSERT INTO CATEGORIA(nome) VALUES('Escritório');
+INSERT INTO CATEGORIA(nome) VALUES('Cama mesa e banho');
+INSERT INTO CATEGORIA(nome) VALUES('Eletrônicos');
+INSERT INTO CATEGORIA(nome) VALUES('Jardinagem');
+INSERT INTO CATEGORIA(nome) VALUES('Decoração');
+INSERT INTO CATEGORIA(nome) VALUES('Perfumaria');
 
 INSERT INTO PRODUTO(nome, valor) VALUES('Computador', 2000.00);
 INSERT INTO PRODUTO(nome, valor) VALUES('Impressora', 800.00);

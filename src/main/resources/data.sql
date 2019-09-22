@@ -33,3 +33,7 @@ INSERT INTO PAGAMENTO_COM_CARTAO(id_pedido, numero_de_parcelas) VALUES(1,6);
 
 INSERT INTO PAGAMENTO(id_pedido, estado) VALUES(2, 1);
 INSERT INTO PAGAMENTO_COM_BOLETO(id_pedido, data_vencimento, data_pagamento) VALUES(2, {ts '2017-10-20 00:00:00.00'}, null);
+
+INSERT INTO ITEM_PEDIDO(id_pedido, id_produto, desconto, quantidade, preco) VALUES(1, 1, 0.00, 1, 2000.00);
+INSERT INTO ITEM_PEDIDO(id_pedido, id_produto, desconto, quantidade, preco) VALUES(1, 3, 0.00, 2, 80.00);
+INSERT INTO ITEM_PEDIDO(id_pedido, id_produto, desconto, quantidade, preco) VALUES(2, 2, 100.00, 1, 800.00);

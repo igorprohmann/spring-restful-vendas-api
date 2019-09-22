@@ -1,5 +1,5 @@
-INSERT INTO CATEGORIA(descricao) VALUES('Informática');
-INSERT INTO CATEGORIA(descricao) VALUES('Escritório');
+INSERT INTO CATEGORIA(nome) VALUES('Informática');
+INSERT INTO CATEGORIA(nome) VALUES('Escritório');
 
 INSERT INTO PRODUTO(nome, valor) VALUES('Computador', 2000.00);
 INSERT INTO PRODUTO(nome, valor) VALUES('Impressora', 800.00);

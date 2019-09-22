@@ -24,4 +24,9 @@ public class CategoriaService {
 		categoria.setId(null);
 		return categoriaRepository.save(categoria);
 	}
+	
+	public Categoria atualizar(Categoria categoria) {
+		obter(categoria.getId());
+		return categoriaRepository.save(categoria);
+	}
 }

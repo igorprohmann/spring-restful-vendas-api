@@ -1,6 +1,9 @@
 package com.codar.vendas.resources;
 
 import java.net.URI;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.codar.vendas.domain.Categoria;
+import com.codar.vendas.dto.CategoriaDTO;
 import com.codar.vendas.services.CategoriaService;
 
 
@@ -53,4 +57,10 @@ public class CategoriaResouce {
 		return ResponseEntity.noContent().build();
 	}
 
+	@GetMapping()
+	public ResponseEntity<List<CategoriaDTO>> listar() {
+		List<Categoria> categorias = categoriaService.listar();
+		List<CategoriaDTO> categoriasDTO = categorias.stream().map(categoria -> new CategoriaDTO(categoria)).collect(Collectors.toList());
+		return ResponseEntity.ok().body(categoriasDTO);
+	}
 }

@@ -11,6 +11,7 @@ import com.codar.vendas.domain.ItemPedido;
 import com.codar.vendas.domain.PagamentoComBoleto;
 import com.codar.vendas.domain.Pedido;
 import com.codar.vendas.domain.enums.EstadoPagamento;
+import com.codar.vendas.repository.ClienteRepository;
 import com.codar.vendas.repository.ItemPedidoRepository;
 import com.codar.vendas.repository.PagamentoRepository;
 import com.codar.vendas.repository.PedidoRepository;
@@ -35,6 +36,9 @@ public class PedidoService {
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 	
+	@Autowired
+	private ClienteRepository clienteRepository;
+	
 	public Pedido obter(Integer id) {
 		Optional<Pedido> pedido = pedidoRepository.findById(id);
 		return pedido.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id:" + id + ", Tipo: " + Pedido.class.getName()));
@@ -44,6 +48,7 @@ public class PedidoService {
 	public Pedido inserir(Pedido pedido) {
 		pedido.setId(null);
 		pedido.setInstante(new Date());
+		pedido.setCliente(clienteRepository.findById(pedido.getCliente().getId()).get());
 		pedido.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		pedido.getPagamento().setPedido(pedido);
 		if (pedido.getPagamento() instanceof PagamentoComBoleto) {
@@ -55,7 +60,8 @@ public class PedidoService {
 		
 		for (ItemPedido itemPedido : pedido.getItens()) {
 			itemPedido.setDesconto(0.0);
-			itemPedido.setPreco(produtoRepository.findById(itemPedido.getProduto().getId()).get().getValor());
+			itemPedido.setProduto(produtoRepository.findById(itemPedido.getProduto().getId()).get());
+			itemPedido.setPreco(itemPedido.getProduto().getValor());
 			itemPedido.setPedido(pedido);
 		}
 		

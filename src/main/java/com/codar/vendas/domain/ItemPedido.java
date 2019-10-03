@@ -32,7 +32,7 @@ public class ItemPedido {
 		this.preco = preco;
 	}
 	
-	public double getsubTotal() {
+	public double getSubTotal() {
 		return (preco - desconto) * quantidade;
 	}
 	
@@ -120,7 +120,7 @@ public class ItemPedido {
 		builder.append(", Preço unitário: ");
 		builder.append(nf.format(getPreco()));
 		builder.append(", SubTotal: ");
-		builder.append(nf.format(getsubTotal()));
+		builder.append(nf.format(getSubTotal()));
 		builder.append("\n");
 		return builder.toString();
 	}	

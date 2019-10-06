@@ -16,11 +16,14 @@ import org.springframework.stereotype.Service;
 import com.codar.vendas.domain.Cidade;
 import com.codar.vendas.domain.Cliente;
 import com.codar.vendas.domain.Endereco;
+import com.codar.vendas.domain.enums.Perfil;
 import com.codar.vendas.domain.enums.TipoCliente;
 import com.codar.vendas.dto.ClienteDTO;
 import com.codar.vendas.dto.ClienteNewDTO;
 import com.codar.vendas.repository.ClienteRepository;
 import com.codar.vendas.repository.EnderecoRepository;
+import com.codar.vendas.security.UserSS;
+import com.codar.vendas.services.exceptions.AuthorizationException;
 import com.codar.vendas.services.exceptions.DataIntegrityException;
 import com.codar.vendas.services.exceptions.ObjectNotFoundException;
 
@@ -36,7 +39,13 @@ public class ClienteService {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	
 	public Cliente obter(Integer id) {
+		UserSS user = UserService.authenticated();
+		if (user==null || !user.hasRole(Perfil.ADMIN) && !id.equals(user.getId())) {
+			throw new AuthorizationException("Acesso negado");
+		}
+		
 		Optional<Cliente> cliente = clienteRepository.findById(id);
 		return cliente.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id:" + id + ", Tipo: " + Cliente.class.getName()));
 	}

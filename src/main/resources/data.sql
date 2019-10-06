@@ -41,13 +41,24 @@ INSERT INTO CIDADE(id_estado, nome) VALUES(1, 'Uberlandia');
 INSERT INTO CIDADE(id_estado, nome) VALUES(2, 'São Paulo');
 INSERT INTO CIDADE(id_estado, nome) VALUES(2, 'Campinas');
 
-INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Maria Silva', 'igor.prohmann@gmail.com', '36378912377', 1, '$2y$12$kD.069pmYuTlFh9S6pfSaOISWcs1sdMLQMthgab3vYPDUBOuQ66gy');
+INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Maria Silva', 'igorantony@live.com', '36378912377', 1, '$2y$12$kD.069pmYuTlFh9S6pfSaOISWcs1sdMLQMthgab3vYPDUBOuQ66gy');
+INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Igor Antony', 'igor.prohmann@gmail.com', '02378096305', 1, '$2y$12$kD.069pmYuTlFh9S6pfSaOISWcs1sdMLQMthgab3vYPDUBOuQ66gy');
+
+INSERT INTO PERFIS(id_cliente, perfis) VALUES(1, 2);
+
+INSERT INTO PERFIS(id_cliente, perfis) VALUES(2, 1);
+INSERT INTO PERFIS(id_cliente, perfis) VALUES(2, 2);
 
 INSERT INTO TELEFONE(id_cliente, telefone) VALUES(1, '27363323');
 INSERT INTO TELEFONE(id_cliente, telefone) VALUES(1, '93838393');
 
+INSERT INTO TELEFONE(id_cliente, telefone) VALUES(2, '27363323');
+INSERT INTO TELEFONE(id_cliente, telefone) VALUES(2, '93838393');
+
 INSERT INTO ENDERECO(logradouro, numero, complemento, bairro, cep, id_cliente, id_cidade) VALUES('Rua Flores', '300', 'Apto 303', 'Jardim', '38220834', 1, 1);
 INSERT INTO ENDERECO(logradouro, numero, complemento, bairro, cep, id_cliente, id_cidade) VALUES('Avenida Matos', '105', 'Sala 800', 'Centro', '38777012', 1, 2);
+
+INSERT INTO ENDERECO(logradouro, numero, complemento, bairro, cep, id_cliente, id_cidade) VALUES('Rua Flores', '300', 'Apto 303', 'Jardim', '38220834', 2, 1);
 
 INSERT INTO PEDIDO(instante, id_cliente, id_endereco_de_entrega) VALUES({ts '2017-09-30 10:32:00.00'},  1, 1);
 INSERT INTO PEDIDO(instante, id_cliente, id_endereco_de_entrega) VALUES({ts '2017-10-10 19:35:00.00'},  1, 2);

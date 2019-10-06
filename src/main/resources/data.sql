@@ -41,7 +41,7 @@ INSERT INTO CIDADE(id_estado, nome) VALUES(1, 'Uberlandia');
 INSERT INTO CIDADE(id_estado, nome) VALUES(2, 'São Paulo');
 INSERT INTO CIDADE(id_estado, nome) VALUES(2, 'Campinas');
 
-INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo) VALUES('Maria Silva', 'igor.prohmann@gmail.com', '36378912377', 1);
+INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Maria Silva', 'igor.prohmann@gmail.com', '36378912377', 1, '$2y$12$kD.069pmYuTlFh9S6pfSaOISWcs1sdMLQMthgab3vYPDUBOuQ66gy');
 
 INSERT INTO TELEFONE(id_cliente, telefone) VALUES(1, '27363323');
 INSERT INTO TELEFONE(id_cliente, telefone) VALUES(1, '93838393');

@@ -41,8 +41,8 @@ INSERT INTO CIDADE(id_estado, nome) VALUES(1, 'Uberlandia');
 INSERT INTO CIDADE(id_estado, nome) VALUES(2, 'São Paulo');
 INSERT INTO CIDADE(id_estado, nome) VALUES(2, 'Campinas');
 
-INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Maria Silva', 'igorantony@live.com', '36378912377', 1, '$2y$12$kD.069pmYuTlFh9S6pfSaOISWcs1sdMLQMthgab3vYPDUBOuQ66gy');
-INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Igor Antony', 'igor.prohmann@gmail.com', '02378096305', 1, '$2y$12$kD.069pmYuTlFh9S6pfSaOISWcs1sdMLQMthgab3vYPDUBOuQ66gy');
+INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Maria Silva', 'igorantony@live.com', '36378912377', 1, '$2a$10$2Gc0OsdkaWuo.pgdNlHzV.n.hUe2HsX/gYGWjRde4aQscy6XugC76');
+INSERT INTO CLIENTE(nome, email, cpf_ou_cnpj, tipo, senha) VALUES('Igor Antony', 'igor.prohmann@gmail.com', '02378096305', 1, '$2a$10$2Gc0OsdkaWuo.pgdNlHzV.n.hUe2HsX/gYGWjRde4aQscy6XugC76');
 
 INSERT INTO PERFIS(id_cliente, perfis) VALUES(1, 2);
 
